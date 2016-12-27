@@ -16,15 +16,16 @@ import java.sql.SQLException;
 public class ConnectDB {
 
     public static Connection connectDataB() {
-        Connection con = null;
+        Connection con = null;   
         try {
             // TODO
-            Class.forName("org.sqlite.JDBC");
-            con = DriverManager.getConnection("jdbc:sqlite:EtudiantApp.sqlite");
+            Class.forName("org.sqlite.JDBC"); // class du pilote(Driver)
+            con = DriverManager.getConnection("jdbc:sqlite:EtudiantApp.sqlite");  //EtudiantApp base donnée
 
         } catch (ClassNotFoundException ex) {
         } catch (SQLException ex) {
-
+         //SQLException gère erreur peut produire par SQL comme si une nom colone existe pas...etc
+            //ClassNotFoundException si la class n'existe pas 
         }
         return con;
     }
