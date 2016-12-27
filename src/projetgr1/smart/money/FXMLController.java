@@ -6,9 +6,7 @@
 package projetgr1.smart.money;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Path;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -308,7 +306,7 @@ public class FXMLController implements Initializable {
     public void connectCompte() {
 
         try {
-            con = ConnectDB.connectDataB();
+            con = ConnectDB.connectDataB(); // connecter a database
             Statement st = con.createStatement();
             rs = st.executeQuery("SELECT * FROM DATA_ACCOUNT WHERE USERNAME='" + FXMLDocumentController.user + "'");
             Double somme = 0.0;
@@ -323,7 +321,9 @@ public class FXMLController implements Initializable {
                         rs.getDouble(8),
                         rs.getDouble(9),
                         rs.getDouble(10)));
+                // chargement donnée utilisateur
                 somme = somme + rs.getDouble(11);
+                // etat du rest de l'etudiant
                 if (somme > 0) {
                     status.setText("GOOD");
                 } else {
@@ -336,8 +336,10 @@ public class FXMLController implements Initializable {
                     }
 
                 }
+                
             }
-            tableau.setItems(FXCollections.observableList(data));
+            tableau.setItems(FXCollections.observableList(data)); // ajout donne au table view avec FXCollection.observableList ()
+                                                                 // qui retourne une observableList
             st.close();
             rs.close();
             con.close();
@@ -346,6 +348,7 @@ public class FXMLController implements Initializable {
         }
     }
 
+    // methode pour afficher erreur
     private void affiMessError(String e) {
         AnchorPane pane = new AnchorPane();
         Stage window = new Stage();
