@@ -126,7 +126,7 @@ public class FXMLDocumentController implements Initializable {
     private void ajouterCompte(ActionEvent event)  {
         try {
             pst = con.prepareStatement("SELECT * FROM IDETUDIANT WHERE USERNAME=?");
-            pst.setString(1, userIncNmtF.getText());
+            pst.setString(1, userIncNmtF.getText()); 
             rs = pst.executeQuery();
 
             if (rs.next() == false && !userIncNmtF.getText().equals("") && !psWordInc.getText().equals("")
