@@ -22,7 +22,7 @@ public class ProjetGr1SMARTMoney extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("InterfaceDeConnexion.fxml"));
         
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root);   //scene fenetre
       
     
         stage.setScene(scene);
