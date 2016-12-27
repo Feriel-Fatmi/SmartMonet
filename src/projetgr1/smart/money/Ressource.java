@@ -32,7 +32,7 @@ public class Ressource {
     private SimpleDoubleProperty transport;
     private SimpleDoubleProperty nourriture;
     private SimpleDoubleProperty sante;
-
+            
     public Ressource(Double aideFamille, Double job, Double bource, Double autre, Double loisir,
             Double weekEnd, Double sante, Double transport, Double nourriture) {
 
@@ -81,9 +81,12 @@ public class Ressource {
             PreparedStatement pst = con.prepareStatement("INSERT INTO DATA_ACCOUNT(USERNAME,AIDEFAMILLE,JOB,BOURCE,AUTRE,LOISIR,WEEKEND,SANTE,TRANSPORT,NOURRITURE,RESTVIVE,REVENUEMOIS,DEPENCEFIXEMOIS)"
                     + "VALUES('" + user + "','" + aideFamille + "','" + job + "','" + r.bourseMois() + "','" + autre
                     + "','" + loisir + "','" + weekEnd + "','" + sante + "','" + this.transport.get() + "','" + this.nourriture.get() + "','" + restVive.get() + "','" + revenueMois.get() + "','" + depenceFixeMois.get() + "')");
+            // insertion des donnée dans la base de donnée
             pst.execute();
+            // execution de la requete insert
             pst.close();
             con.close();
+            // fermer connection pour éviter que sqlite soit fermer  
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -187,31 +190,6 @@ public class Ressource {
         this.nourriture.set(nourriture);
     }
 
-    public static  ArrayList<Ressource> ListRessource(ArrayList<Ressource> list) {
-        try {
-
-            Connection con = ConnectDB.connectDataB();
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM DATA_ACCOUNT WHERE USERNAME='" + FXMLDocumentController.user + "'");
-            System.out.print(rs.next());
-            while (rs.next()&& !rs.getString(1).equals("")) {
-                list.add(new Ressource(rs.getDouble(2),
-                        rs.getDouble(3),
-                        rs.getDouble(4),
-                        rs.getDouble(5),
-                        rs.getDouble(6),
-                        rs.getDouble(7),
-                        rs.getDouble(8),
-                        rs.getDouble(9),
-                        rs.getDouble(10)));
-
-            }
-            st.close();
-            rs.close();
-            con.close();
-        } catch (SQLException e) {
-        }
-        return list;
-    }
+  
 
 }
