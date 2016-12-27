@@ -6,7 +6,8 @@
 package projetgr1.smart.money;
 
 import java.io.File;
-
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -235,7 +236,9 @@ public class FXMLController implements Initializable {
     }
 
     @FXML
+    
     private void delete(ActionEvent event) {
+    // supp donne tableView
         try {
             con = ConnectDB.connectDataB();
             if (!data.isEmpty()) {
@@ -304,7 +307,7 @@ public class FXMLController implements Initializable {
     }
 
     public void connectCompte() {
-
+   // chargement de donne de database vers compte
         try {
             con = ConnectDB.connectDataB(); // connecter a database
             Statement st = con.createStatement();
