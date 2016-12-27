@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="655.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetgr1.smart.money.FXMLDocumentController">
+   <children>
+      <Pane fx:id="SingUpWindows" layoutX="132.0" layoutY="114.0" opacity="0.0" prefHeight="457.0" prefWidth="423.0">
+         <children>
+            <HBox>
+               <children>
+                  <Pane fx:id="SingupFenetre" prefHeight="363.0" prefWidth="373.0">
+                     <children>
+                        <Button layoutX="199.0" layoutY="310.0" mnemonicParsing="false" onAction="#ajouterCompte" text="Sing Up">
+                           <font>
+                              <Font name="Ubuntu Mono" size="17.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="firstNameTF" layoutX="136.0" layoutY="71.0">
+                           <tooltip>
+                              <Tooltip text="first Name should not  be empty" />
+                           </tooltip></TextField>
+                        <TextField fx:id="lastNameTF" layoutX="136.0" layoutY="134.0">
+                           <tooltip>
+                              <Tooltip text="lastName should not be empty" />
+                           </tooltip></TextField>
+                        <PasswordField fx:id="psWordInc" layoutX="136.0" layoutY="256.0">
+                           <tooltip>
+                              <Tooltip text="Password less then 7" />
+                           </tooltip></PasswordField>
+                        <Label layoutX="53.0" layoutY="75.0" text="FirstName">
+                           <font>
+                              <Font name="Ubuntu Mono" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="54.0" layoutY="138.0" prefHeight="17.0" prefWidth="76.0" text="LastName">
+                           <font>
+                              <Font name="Ubuntu Mono" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="53.0" layoutY="260.0" text="Password">
+                           <font>
+                              <Font name="Ubuntu Mono" size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="userIncNmtF" layoutX="136.0" layoutY="193.0" prefHeight="26.0" prefWidth="170.0">
+                           <tooltip>
+                              <Tooltip text="userName should not be empty" />
+                           </tooltip></TextField>
+                        <Label layoutX="57.0" layoutY="199.0" text="Username">
+                           <font>
+                              <Font name="Ubuntu Mono" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <Label fx:id="check" layoutX="11.0" layoutY="398.0" prefHeight="24.0" prefWidth="453.0" textAlignment="CENTER">
+               <font>
+                  <Font name="Ubuntu Mono" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="97.0" layoutY="77.0" prefHeight="44.0" prefWidth="483.0" style="-fx-background-color: #1cbc;">
+         <children>
+            <Button fx:id="singUp" layoutX="295.0" layoutY="2.0" mnemonicParsing="false" onMouseEntered="#singUpAcc" prefHeight="37.0" prefWidth="121.0" style="-fx-background-color: #1cb0;" text="Sing Up">
+               <font>
+                  <Font name="Ubuntu Mono" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="singIn" layoutX="57.0" layoutY="4.0" mnemonicParsing="false" onMouseEntered="#singInAcc" prefHeight="37.0" prefWidth="103.0" style="-fx-background-color: #1cb0;" text="Sing In">
+               <font>
+                  <Font name="Ubuntu Mono" size="21.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label layoutX="188.0" layoutY="8.0" prefHeight="39.0" prefWidth="296.0" text="Budget Etudiant " textAlignment="CENTER">
+         <font>
+            <Font name="Norasi Bold Oblique" size="33.0" />
+         </font>
+      </Label>
+      <Pane opacity="0.58" prefHeight="57.0" prefWidth="677.0" style="-fx-background-color: #1cbc;">
+         <children>
+            <Button fx:id="close" layoutX="623.0" mnemonicParsing="false" onAction="#closeClick" onMouseEntered="#closeEnter" onMouseExited="#closeExit" prefHeight="57.0" prefWidth="54.0" style="-fx-background-color: #1cb0;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="KacstOne Bold" size="21.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Close" />
+               </tooltip>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="SingInWindows" layoutX="97.0" layoutY="118.0" prefHeight="390.0" prefWidth="483.0" style="-fx-background-color: #2ccc; -fx-border-color: #cccc; -fx-border-width: 7;">
+         <children>
+            <Pane layoutX="-7.0" prefHeight="390.0" prefWidth="483.0">
+               <children>
+                  <PasswordField fx:id="passWord" layoutX="153.0" layoutY="202.0" prefHeight="44.0" prefWidth="186.0" promptText="Password">
+                     <font>
+                        <Font name="Ubuntu Mono" size="22.0" />
+                     </font>
+                  </PasswordField>
+                  <Button layoutX="176.0" layoutY="293.0" mnemonicParsing="false" onAction="#Connect" prefHeight="23.0" prefWidth="163.0" style="-fx-background-color: #7cfc00;" text="Login" textFill="WHITE">
+                     <font>
+                        <Font name="Kinnari Oblique" size="17.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="userName" layoutX="153.0" layoutY="85.0" prefHeight="44.0" prefWidth="186.0" promptText="Username">
+                     <font>
+                        <Font name="Ubuntu Light" size="20.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="29.0" layoutY="96.0" prefHeight="24.0" prefWidth="114.0" text="Username">
+                     <font>
+                        <Font name="Ubuntu Mono" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="210.0" prefHeight="29.0" prefWidth="114.0" text="Password">
+                     <font>
+                        <Font name="Ubuntu Mono" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="faileToConnect" layoutX="172.0" layoutY="42.0" prefHeight="16.0" prefWidth="114.0" textFill="#0b44ff" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
