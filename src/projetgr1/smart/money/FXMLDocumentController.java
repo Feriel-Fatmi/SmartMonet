@@ -89,7 +89,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void singUpAcc(MouseEvent event) {
-
+// affichage sing up on jouent sur opacity des pane
         SingInWindows.setOpacity(0);
         SingInWindows.setLayoutY(500);
         SingUpWindows.setOpacity(1);
@@ -98,17 +98,20 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void closeExit(MouseEvent event) {
+        // style init button close
         close.setStyle("-fx-background-color:#1cb0");
 
     }
 
     @FXML
     private void closeEnter(MouseEvent event) {
+        // stryle button close 
         close.setStyle("-fx-background-color:red");
     }
 
     @FXML
     private void closeClick(ActionEvent event) {
+        // fermer la fenetre
         ((Node) event.getSource()).getScene().getWindow().hide();
     }
 
@@ -120,7 +123,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void ajouterCompte(ActionEvent event) throws IOException {
+    private void ajouterCompte(ActionEvent event)  {
         try {
             pst = con.prepareStatement("SELECT * FROM IDETUDIANT WHERE USERNAME=?");
             pst.setString(1, userIncNmtF.getText());
@@ -172,13 +175,13 @@ public class FXMLDocumentController implements Initializable {
         
 
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException | IOException ex) {
+            System.out.print(ex.getMessage());
         }
     }
 
     @FXML
-    private void Connect(ActionEvent event) throws IOException {
+    private void Connect(ActionEvent event) {
         try {
             pst = con.prepareStatement("SELECT * FROM IDETUDIANT WHERE USERNAME=? AND PASSWORD=?");
             pst.setString(1, userName.getText());
@@ -201,8 +204,8 @@ public class FXMLDocumentController implements Initializable {
 
                 faileToConnect.setText("Faile to Connect");
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException | IOException ex) {
+           System.out.print(ex.getMessage());   
         }
 
     }
